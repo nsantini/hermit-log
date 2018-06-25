@@ -7,9 +7,12 @@ export default class extends Component {
       <Box label={this.props.label} margin="10px 0" padding="0">
         <TitleBar title={this.props.title} />
         <Label padding="10px 0" >{this.props.date}</Label>
-        <Text padding="50px 100px" textAlign="left" size="16">
-          {this.props.text}
-        </Text>
+        {this.props.text.map(txt => (
+          <Text padding="20px" textAlign="left" size="16">
+            {txt}
+          </Text>
+        ))}
+        
       </Box>
     );
   }

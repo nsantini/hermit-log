@@ -1,7 +1,15 @@
 [
   {
+    "title": "Purpose",
+    "date": "26 Jun 2018",
+    "text": [
+      "I need to get in the habit of writing. But I always end up playing with different tech and not doing any writing at all.",
+      "Maybe this will be a good start. I can play with the tech and do some writign at the same time."
+    ]
+  },
+  {
     "title": "Hello world!",
     "date": "26 Jun 2018",
-    "text": "This is the first of many to come"
+    "text": ["This is the first of many to come"]
   }
 ]
