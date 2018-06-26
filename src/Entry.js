@@ -1,18 +1,28 @@
 import React, { Component } from 'react';
-import { Box, Label, Text, TitleBar } from 'react-desktop/macOs';
+import { Box, Text, TitleBar } from 'react-desktop/macOs';
+import ReactMarkdown from 'react-markdown';
 
 export default class extends Component {
+  constructor() {
+    super();
+    this.state = {
+      markdown: ''
+    };
+  }
+
+  componentWillMount() {
+    fetch(this.props.file).then((response) => response.text()).then((markdown) => {
+      this.setState({ markdown })
+    });
+  }
+
   render() {
     return (
-      <Box label={this.props.label} margin="10px 0" padding="0">
-        <TitleBar title={this.props.title} />
-        <Label padding="10px 0" >{this.props.date}</Label>
-        {this.props.text.map(txt => (
-          <Text padding="20px" textAlign="left" size="16">
-            {txt}
-          </Text>
-        ))}
-        
+      <Box margin="10px 0" padding="0">
+        <TitleBar />
+        <Text padding="5px 20px" textAlign="left" size="16">
+          <ReactMarkdown source={this.state.markdown} />
+        </Text>
       </Box>
     );
   }
