@@ -10,7 +10,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Box>
+        <Box margin="10px 0">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Nicolas Santini's log</h1>
           <p className="App-intro">
