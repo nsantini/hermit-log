@@ -3,9 +3,20 @@ import logo from './hermies.png';
 import './App.css';
 import Entry from './Entry';
 import { Box } from 'react-desktop/macOs';
-import logs from './logs.json';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      logs: []
+    };
+  }
+
+  componentWillMount() {
+    fetch('/logs.json')
+    .then((response) => response.json())
+    .then((logs) => this.setState({ logs }));
+  }
 
   render() {
     return (
@@ -17,7 +28,7 @@ class App extends Component {
             Welcome to my personal hermit site.
           </p>
         </Box>
-        {logs.map(log => (
+        {this.state.logs.map(log => (
           <Entry file={'logs/' + log} />
         ))}
       </div>
